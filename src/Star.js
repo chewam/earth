@@ -11,6 +11,8 @@ export default class Star extends THREE.Mesh {
     this.orbitalRadius = config.orbitalRadius;
     this.orbitalPeriode = config.orbitalPeriode;
     this.rotationPeriode = config.rotationPeriode;
+
+    this.t = 0;
   }
 
   getRotationPeriode() {
@@ -31,6 +33,15 @@ export default class Star extends THREE.Mesh {
 
   getRotationSpeed() {
     return 2 * Math.PI / this.getRotationPeriode();
+  }
+
+  animate(delta) {
+    this.t += delta * this.getOrbit() * 10000;
+
+    this.position.x = Math.cos(this.t) * this.getOrbitalRadius() / 1000000;
+    this.position.z = Math.sin(this.t) * this.getOrbitalRadius() / 1000000;
+
+    this.rotation.y += delta * this.getRotationSpeed() * 10000;
   }
 
 }

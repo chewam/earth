@@ -21,18 +21,6 @@ export default class Earth extends Star {
         specularMap: textureLoader.load('img/earthspec1k.jpg')
       }
     })
-
-    this.t = 0;
-
-  }
-
-  animate(delta) {
-    this.t += delta * this.getOrbit() * 10000;
-
-    this.position.x = Math.cos(this.t) * this.getOrbitalRadius() / 1000000;
-    this.position.z = Math.sin(this.t) * this.getOrbitalRadius() / 1000000;
-
-    this.rotation.y += delta * this.getRotationSpeed() * 10000;
   }
 
 }
