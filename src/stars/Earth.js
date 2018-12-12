@@ -7,7 +7,7 @@ export default class Earth extends Star {
     let textureLoader = new THREE.TextureLoader();
 
     super({
-      radius: 6371.0, // in kilometers
+      radius: Earth.getRadius(), // in kilometers
       rotationPeriode: 86164.1, // in seconds
       orbitalRadius: 149600000, // in kilometers
       orbitalPeriode: 31536000, // in seconds
@@ -21,6 +21,10 @@ export default class Earth extends Star {
         specularMap: textureLoader.load('img/earthspec1k.jpg')
       }
     })
+  }
+
+  static getRadius() {
+    return 6371;
   }
 
 }

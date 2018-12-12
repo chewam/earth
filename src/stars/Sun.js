@@ -4,10 +4,11 @@ import Star from '../Star';
 export default class Sun extends Star {
 
   constructor() {
+    // let radius = 695508;
     let textureLoader = new THREE.TextureLoader();
 
     super({
-      radius: 695508, // in kilometers
+      radius: Sun.getRadius(), // in kilometers
       rotationPeriode: 2164320, // in seconds
       material: {
         color: 0xffffff,
@@ -20,6 +21,10 @@ export default class Sun extends Star {
 
   animate(delta) {
     this.rotation.y += delta * this.getRotationSpeed() * 10000;
+  }
+
+  static getRadius() {
+    return 695508 / 2;
   }
 
 }

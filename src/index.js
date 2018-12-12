@@ -10,43 +10,71 @@ import Neptune from './stars/Neptune';
 import Pluto from './stars/Pluto';
 import Mercury from './stars/Mercury';
 import Venus from './stars/Venus';
+import Saturn from './stars/Saturn';
+import Uranus from './stars/Uranus';
 
 // CAMERA
 let camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 20000);
 let controls = new THREE.OrbitControls(camera);
-camera.position.set(300, 40, 0);
+camera.position.set(100, 40, 0);
 controls.update();
 
 // SCENE
 let scene = new THREE.Scene();
-let renderer = new THREE.WebGLRenderer();
+let renderer = new THREE.WebGLRenderer({alpha: true});
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.body.appendChild(renderer.domElement);
+document.getElementById('scene').appendChild(renderer.domElement);
 
 // LIGHT
-let light = new THREE.PointLight(0xffffff, 100, 1000, 2.0);
+let light = new THREE.PointLight(0xffffff, 1000, 0, 2);
+light.castShadow = true;
+
+var light2	= new THREE.DirectionalLight( 0xcccccc, 1 )
+	light2.position.set(5,5,5)
+	scene.add( light2 )
+	light2.castShadow	= true
+	light2.shadowCameraNear	= 0.01
+	light2.shadowCameraFar	= 15
+	light2.shadowCameraFov	= 45
+
+	light2.shadowCameraLeft	= -1
+	light2.shadowCameraRight	=  1
+	light2.shadowCameraTop	=  1
+	light2.shadowCameraBottom= -1
+	// light2.shadowCameraVisible	= true
+
+	light2.shadowBias	= 0.001
+	light2.shadowDarkness	= 0.2
+
+	light2.shadowMapWidth	= 1024*2
+	light2.shadowMapHeight	= 1024*2
 
 // STARS
 let sun = new Sun();
+let mercury = new Mercury();
+let venus = new Venus();
 let earth = new Earth();
 let moon = new Moon();
 let mars = new Mars();
 let jupiter = new Jupiter();
-let neptune = new Neptune();
+let saturn = new Saturn();
+let uranus = new Uranus();
 let pluto = new Pluto();
-let mercury = new Mercury();
-let venus = new Venus();
+let neptune = new Neptune();
 
-light.add(sun);
+earth.addSatelite(moon);
+light.add(sun); // 695,508
 scene.add(light);
-scene.add(earth);
-// scene.add(moon);
-scene.add(mars);
-scene.add(jupiter);
-scene.add(neptune);
-scene.add(pluto);
-scene.add(mercury);
-scene.add(venus);
+
+// scene.add(mercury); // 57,910,000
+// scene.add(venus); // 108,200,000
+scene.add(earth); // 149,600,000
+// scene.add(mars); // 227,900,000
+// scene.add(jupiter); // 778,500,000
+// scene.add(saturn); // 1,433,000,000
+// scene.add(uranus); // 2,871,000,000
+// scene.add(pluto); // 4,440,000,000
+// scene.add(neptune); // 4,495,000,000
 
 // ANIMATION
 let clock = new THREE.Clock();
@@ -57,14 +85,16 @@ let animate = function() {
 	requestAnimationFrame(animate);
 
   sun.animate(delta);
+  // mercury.animate(delta);
+  // venus.animate(delta);
   earth.animate(delta);
-  // moon.animate(delta);
-  mars.animate(delta);
-  jupiter.animate(delta);
-  neptune.animate(delta);
-  pluto.animate(delta);
-  mercury.animate(delta);
-  venus.animate(delta);
+  moon.animate(delta);
+  // mars.animate(delta);
+  // jupiter.animate(delta);
+  // saturn.animate(delta);
+  // uranus.animate(delta);
+  // pluto.animate(delta);
+  // neptune.animate(delta);
 
 	renderer.render(scene, camera);
 };

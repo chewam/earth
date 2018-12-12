@@ -8,7 +8,7 @@ export default class Venus extends Star {
 
     super({
       radius: 6051.8, // in kilometers
-      rotationPeriode: 20995200, // in seconds
+      rotationPeriode: -20995200, // in seconds
       orbitalRadius: 108200000, // in kilometers
       orbitalPeriode: 18935794.44, // in seconds
       material: {

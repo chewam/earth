@@ -108,30 +108,6 @@ eval("/* WEBPACK VAR INJECTION */(function(THREE) {/**\n * @author qiao / https:
 
 /***/ }),
 
-/***/ "./src/Earth.js":
-/*!**********************!*\
-  !*** ./src/Earth.js ***!
-  \**********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Earth; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Star */ \"./src/Star.js\");\n\n\n\nclass Earth extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 6371.0, // in kilometers\n      rotationTime: 86164.1, // in seconds\n      material: {\n        bumpScale: 0.05,\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/earthmap1k.jpg'),\n        bumpMap: textureLoader.load('img/earthbump1k.jpg'),\n        specularMap: textureLoader.load('img/earthspec1k.jpg')\n      }\n    })\n\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/Earth.js?");
-
-/***/ }),
-
-/***/ "./src/Moon.js":
-/*!*********************!*\
-  !*** ./src/Moon.js ***!
-  \*********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Moon; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Star */ \"./src/Star.js\");\n\n\n\nclass Moon extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 1737.1, // in kilometers\n      rotationTime: 2360591.5104, // in seconds\n      material: {\n        bumpScale: 0.01,\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/moonmap1k.jpg'),\n        bumpMap: textureLoader.load('img/moonbump1k.jpg')\n      }\n    })\n\n  }\n\n  static getDistanceToEarth() {\n    return 384402; // in kilometers\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/Moon.js?");
-
-/***/ }),
-
 /***/ "./src/Star.js":
 /*!*********************!*\
   !*** ./src/Star.js ***!
@@ -140,19 +116,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Star; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n\n\nclass Star extends THREE.Mesh {\n\n  constructor(config) {\n    let geometry = new THREE.SphereGeometry(config.radius / 10000, 32, 32);\n    let material = new THREE.MeshPhongMaterial(config.material);\n    super(geometry, material);\n\n    this.rotationTime = config.rotationTime;\n  }\n\n  getRotationTime() {\n    return this.rotationTime;\n  }\n\n  getRotationSpeed() {\n    return 2 * Math.PI / this.getRotationTime();\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/Star.js?");
-
-/***/ }),
-
-/***/ "./src/Sun.js":
-/*!********************!*\
-  !*** ./src/Sun.js ***!
-  \********************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Sun; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Star */ \"./src/Star.js\");\n\n\n\nclass Sun extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 1737.1, // in kilometers\n      rotationTime: 2360591.5104, // in seconds\n      material: {\n        bumpScale: 0.01,\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/moonmap1k.jpg'),\n        bumpMap: textureLoader.load('img/moonbump1k.jpg')\n      }\n    })\n\n  }\n\n  static getDistanceToEarth() {\n    return 384402; // in kilometers\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/Sun.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Star; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _stars_Sun__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stars/Sun */ \"./src/stars/Sun.js\");\n\n\n\nclass Star extends THREE.Mesh {\n\n  constructor(config) {\n    let geometry = new THREE.SphereBufferGeometry(config.radius / 10000, 64, 64);\n    let material = new THREE[config.material.type](config.material);\n\n    super(geometry, material);\n\n    this.orbitalRadius = config.orbitalRadius;\n    this.orbitalPeriode = config.orbitalPeriode;\n    this.rotationPeriode = config.rotationPeriode;\n\n    this.t = 0;\n  }\n\n  getRotationPeriode() {\n    return this.rotationPeriode;\n  }\n\n  getOrbitalRadius() {\n    return this.orbitalRadius + _stars_Sun__WEBPACK_IMPORTED_MODULE_1__[\"default\"].getRadius();\n  }\n\n  getOrbitalPeriode() {\n    return this.orbitalPeriode;\n  }\n\n  getOrbit() {\n    return 2 * Math.PI / this.getOrbitalPeriode();\n  }\n\n  getRotationSpeed() {\n    return 2 * Math.PI / this.getRotationPeriode();\n  }\n\n  animate(delta) {\n    this.t += delta * this.getOrbit() * 1000000;\n\n    this.position.x = Math.cos(this.t) * this.getOrbitalRadius() / 1000000;\n    this.position.z = Math.sin(this.t) * this.getOrbitalRadius() / 1000000;\n\n    this.rotation.y += delta * this.getRotationSpeed() * 1000000;\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/Star.js?");
 
 /***/ }),
 
@@ -164,7 +128,127 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(f
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var three_examples_js_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three/examples/js/controls/OrbitControls */ \"./node_modules/three/examples/js/controls/OrbitControls.js\");\n/* harmony import */ var three_examples_js_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(three_examples_js_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _Sun__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Sun */ \"./src/Sun.js\");\n/* harmony import */ var _Earth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Earth */ \"./src/Earth.js\");\n/* harmony import */ var _Moon__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Moon */ \"./src/Moon.js\");\n\n\n\n\n\n\n\n// CAMERA\nlet camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 2000);\nlet controls = new THREE.OrbitControls(camera);\ncamera.position.set(80, 40, 0);\ncontrols.update();\n\n// SCENE\nlet scene = new THREE.Scene();\nlet renderer = new THREE.WebGLRenderer();\nrenderer.setSize(window.innerWidth, window.innerHeight);\ndocument.body.appendChild(renderer.domElement);\n\n// EARTH\nlet earth = new _Earth__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\nearth.position.set(0, 0, 0);\nscene.add(earth);\n\n// MOON\nlet moon = new _Moon__WEBPACK_IMPORTED_MODULE_4__[\"default\"]();\n// moon.position.set(-1, 0, 0);\nscene.add(moon);\n\n// LIGHT\n// var light = new THREE.HemisphereLight(0xffffbb, 0x080820, 1);\n// var helper = new THREE.HemisphereLightHelper(light, 5);\n// helper.position.set(-1, 0, 0);\n// scene.add(helper);\nlet light = new THREE.DirectionalLight(0xffffff);\nlight.position.set(0, 1, 1).normalize();\nscene.add(light);\n\n// ANIMATION\nlet t = 0;\nlet clock = new THREE.Clock();\n\nlet animate = function() {\n  let delta = clock.getDelta();\n\n\trequestAnimationFrame(animate);\n\n  earth.rotation.y += delta * earth.getRotationSpeed() * 10000;\n\n  t += delta * moon.getRotationSpeed() * 10000;\n  moon.position.x = Math.cos(t) * _Moon__WEBPACK_IMPORTED_MODULE_4__[\"default\"].getDistanceToEarth() / 10000;\n  moon.position.z = Math.sin(t) * _Moon__WEBPACK_IMPORTED_MODULE_4__[\"default\"].getDistanceToEarth() / 10000;\n  moon.rotation.y += delta * moon.getRotationSpeed() * 10000;\n\n\trenderer.render(scene, camera);\n};\n\nanimate();\n\n// class Earth extends THREE.Mesh {\n//\n//   constructor() {\n//     let radius = 6371.0;\n//     let geometry = new THREE.SphereGeometry(radius / 10000, 32, 32);\n//     let textureLoader = new THREE.TextureLoader();\n//\n//     let material = new THREE.MeshPhongMaterial({\n//       bumpScale: 0.05,\n//       specular: new THREE.Color('grey'),\n//       map: textureLoader.load('img/earthmap1k.jpg'),\n//       bumpMap: textureLoader.load('img/earthbump1k.jpg'),\n//       specularMap: textureLoader.load('img/earthspec1k.jpg')\n//     });\n//\n//     super(geometry, material);\n//   }\n//\n//   static getRotationSpeed() {\n//     // 86164.1 seconds for one rotation\n//     return 2 * Math.PI / 86164.1;\n//   }\n//\n// }\n\n// class Moon extends THREE.Mesh {\n//\n//   constructor() {\n//     let geometry = new THREE.SphereGeometry(Moon.getRadius() / 10000, 32, 32);\n//     let textureLoader = new THREE.TextureLoader();\n//\n//     let material = new THREE.MeshPhongMaterial({\n//       bumpScale: 0.01,\n//       specular: new THREE.Color('grey'),\n//       map: textureLoader.load('img/moonmap1k.jpg'),\n//       bumpMap: textureLoader.load('img/moonbump1k.jpg')\n//     });\n//\n//     super(geometry, material);\n//   }\n//\n//   static getRadius() {\n//     return 1737.1;\n//   }\n//\n//   static getDistanceToEarth() {\n//     return 384402;\n//   }\n//\n//   static getRotationSpeed() {\n//     // 2360591.5104 seconds for one rotation\n//     return 2 * Math.PI / 2360591.5104;\n//   }\n//\n// }\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var three_examples_js_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! three/examples/js/controls/OrbitControls */ \"./node_modules/three/examples/js/controls/OrbitControls.js\");\n/* harmony import */ var three_examples_js_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(three_examples_js_controls_OrbitControls__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _stars_Sun__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./stars/Sun */ \"./src/stars/Sun.js\");\n/* harmony import */ var _stars_Earth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./stars/Earth */ \"./src/stars/Earth.js\");\n/* harmony import */ var _stars_Mars__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./stars/Mars */ \"./src/stars/Mars.js\");\n/* harmony import */ var _stars_Jupiter__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./stars/Jupiter */ \"./src/stars/Jupiter.js\");\n/* harmony import */ var _stars_Neptune__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./stars/Neptune */ \"./src/stars/Neptune.js\");\n/* harmony import */ var _stars_Pluto__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./stars/Pluto */ \"./src/stars/Pluto.js\");\n/* harmony import */ var _stars_Mercury__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./stars/Mercury */ \"./src/stars/Mercury.js\");\n/* harmony import */ var _stars_Venus__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./stars/Venus */ \"./src/stars/Venus.js\");\n/* harmony import */ var _stars_Saturn__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./stars/Saturn */ \"./src/stars/Saturn.js\");\n/* harmony import */ var _stars_Uranus__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./stars/Uranus */ \"./src/stars/Uranus.js\");\n\n\n\n\n// import Moon from './stars/Moon';\n\n\n\n\n\n\n\n\n\n\n// CAMERA\nlet camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 20000);\nlet controls = new THREE.OrbitControls(camera);\ncamera.position.set(300, 40, 0);\ncontrols.update();\n\n// SCENE\nlet scene = new THREE.Scene();\nlet renderer = new THREE.WebGLRenderer();\nrenderer.setSize(window.innerWidth, window.innerHeight);\ndocument.getElementById('scene').appendChild(renderer.domElement);\n\n// LIGHT\nlet light = new THREE.PointLight(0xffffff, 1000, 0, 2);\n\nvar light2\t= new THREE.DirectionalLight( 0xcccccc, 1 )\n\tlight2.position.set(5,5,5)\n\tscene.add( light2 )\n\tlight2.castShadow\t= true\n\tlight2.shadowCameraNear\t= 0.01\n\tlight2.shadowCameraFar\t= 15\n\tlight2.shadowCameraFov\t= 45\n\n\tlight2.shadowCameraLeft\t= -1\n\tlight2.shadowCameraRight\t=  1\n\tlight2.shadowCameraTop\t=  1\n\tlight2.shadowCameraBottom= -1\n\t// light2.shadowCameraVisible\t= true\n\n\tlight2.shadowBias\t= 0.001\n\tlight2.shadowDarkness\t= 0.2\n\n\tlight2.shadowMapWidth\t= 1024*2\n\tlight2.shadowMapHeight\t= 1024*2\n\n// STARS\nlet sun = new _stars_Sun__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\nlet mercury = new _stars_Mercury__WEBPACK_IMPORTED_MODULE_8__[\"default\"]();\nlet venus = new _stars_Venus__WEBPACK_IMPORTED_MODULE_9__[\"default\"]();\nlet earth = new _stars_Earth__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\n// let moon = new Moon();\nlet mars = new _stars_Mars__WEBPACK_IMPORTED_MODULE_4__[\"default\"]();\nlet jupiter = new _stars_Jupiter__WEBPACK_IMPORTED_MODULE_5__[\"default\"]();\nlet saturn = new _stars_Saturn__WEBPACK_IMPORTED_MODULE_10__[\"default\"]();\nlet uranus = new _stars_Uranus__WEBPACK_IMPORTED_MODULE_11__[\"default\"]();\nlet pluto = new _stars_Pluto__WEBPACK_IMPORTED_MODULE_7__[\"default\"]();\nlet neptune = new _stars_Neptune__WEBPACK_IMPORTED_MODULE_6__[\"default\"]();\n\nlight.add(sun); // 695,508\nscene.add(light);\n\nscene.add(mercury); // 57,910,000\nscene.add(venus); // 108,200,000\nscene.add(earth); // 149,600,000\n// scene.add(moon);\nscene.add(mars); // 227,900,000\nscene.add(jupiter); // 778,500,000\nscene.add(saturn); // 1,433,000,000\nscene.add(uranus); // 2,871,000,000\nscene.add(pluto); // 4,440,000,000\nscene.add(neptune); // 4,495,000,000\n\n// ANIMATION\nlet clock = new THREE.Clock();\n\nlet animate = function() {\n  let delta = clock.getDelta();\n\n\trequestAnimationFrame(animate);\n\n  sun.animate(delta);\n  mercury.animate(delta);\n  venus.animate(delta);\n  earth.animate(delta);\n  // moon.animate(delta);\n  mars.animate(delta);\n  jupiter.animate(delta);\n  saturn.animate(delta);\n  uranus.animate(delta);\n  pluto.animate(delta);\n  neptune.animate(delta);\n\n\trenderer.render(scene, camera);\n};\n\nanimate();\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Earth.js":
+/*!****************************!*\
+  !*** ./src/stars/Earth.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Earth; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Earth extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 6371, // in kilometers\n      rotationPeriode: 86164.1, // in seconds\n      orbitalRadius: 149600000, // in kilometers\n      orbitalPeriode: 31536000, // in seconds\n      material: {\n        bumpScale: 0.01,\n        type: 'MeshPhongMaterial',\n        specular: new THREE.Color('grey'),\n        // map: textureLoader.load('img/earthmap1k.jpg'),\n        map: textureLoader.load('img/earth_3.jpg'),\n        bumpMap: textureLoader.load('img/earthbump1k.jpg'),\n        specularMap: textureLoader.load('img/earthspec1k.jpg')\n      }\n    })\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Earth.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Jupiter.js":
+/*!******************************!*\
+  !*** ./src/stars/Jupiter.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Jupiter; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Jupiter extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 71492, // in kilometers\n      rotationPeriode: 857520, // in seconds\n      orbitalRadius: 778500000, // in kilometers\n      orbitalPeriode: 374335776, // in seconds\n      material: {\n        bumpScale: 0.01,\n        type: 'MeshPhongMaterial',\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/jupitermap.jpg')\n      }\n    })\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Jupiter.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Mars.js":
+/*!***************************!*\
+  !*** ./src/stars/Mars.js ***!
+  \***************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Mars; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Mars extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 3396.2, // in kilometers\n      rotationPeriode: 88775.244, // in seconds\n      orbitalRadius: 227900000, // in kilometers\n      orbitalPeriode: 59354294.4, // in seconds\n      material: {\n        bumpScale: 0.01,\n        type: 'MeshPhongMaterial',\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/marsmap1k.jpg'),\n        bumpMap: textureLoader.load('img/marsbump1k.jpg')\n      }\n    })\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Mars.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Mercury.js":
+/*!******************************!*\
+  !*** ./src/stars/Mercury.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Mercury; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Mercury extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 2439.7, // in kilometers\n      rotationPeriode: 5067000, // in seconds\n      orbitalRadius: 57910000, // in kilometers\n      orbitalPeriode: 7600521.7296, // in seconds\n      material: {\n        bumpScale: 0.01,\n        type: 'MeshPhongMaterial',\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/mercurymap.jpg'),\n        bumpMap: textureLoader.load('img/mercurybump.jpg')\n      }\n    })\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Mercury.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Neptune.js":
+/*!******************************!*\
+  !*** ./src/stars/Neptune.js ***!
+  \******************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Neptune; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Neptune extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 24764, // in kilometers\n      rotationPeriode: 58000.32, // in seconds\n      orbitalRadius: 4495000000, // in kilometers\n      orbitalPeriode: 5203440000, // in seconds\n      material: {\n        bumpScale: 0.01,\n        type: 'MeshPhongMaterial',\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/neptunemap.jpg')\n      }\n    })\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Neptune.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Pluto.js":
+/*!****************************!*\
+  !*** ./src/stars/Pluto.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Pluto; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Pluto extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 1188.3, // in kilometers\n      rotationPeriode: 551856, // in seconds\n      orbitalRadius: 4440000000, // in kilometers\n      orbitalPeriode: 7826284800, // in seconds\n      material: {\n        bumpScale: 0.01,\n        type: 'MeshPhongMaterial',\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/plutomap1k.jpg'),\n        bumpMap: textureLoader.load('img/plutobump1k.jpg')\n      }\n    })\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Pluto.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Saturn.js":
+/*!*****************************!*\
+  !*** ./src/stars/Saturn.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Saturn; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Saturn extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 58232, // in kilometers\n      rotationPeriode: 37980, // in seconds\n      orbitalRadius: 1433000000, // in kilometers\n      orbitalPeriode: 929595378.96, // in seconds\n      material: {\n        bumpScale: 0.01,\n        type: 'MeshPhongMaterial',\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/saturnmap.jpg'),\n        bumpMap: textureLoader.load('img/saturnmap.jpg')\n      }\n    })\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Saturn.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Sun.js":
+/*!**************************!*\
+  !*** ./src/stars/Sun.js ***!
+  \**************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Sun; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Sun extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    // let radius = 695508;\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: Sun.getRadius(), // in kilometers\n      rotationPeriode: 2164320, // in seconds\n      material: {\n        color: 0xffffff,\n        type: 'MeshBasicMaterial',\n        map: textureLoader.load('img/sun.jpg')\n      }\n    })\n\n  }\n\n  animate(delta) {\n    this.rotation.y += delta * this.getRotationSpeed() * 10000;\n  }\n\n  static getRadius() {\n    return 695508 / 2;\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Sun.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Uranus.js":
+/*!*****************************!*\
+  !*** ./src/stars/Uranus.js ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Uranus; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Uranus extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 25362, // in kilometers\n      rotationPeriode: 62063.712, // in seconds\n      orbitalRadius: 2871000000, // in kilometers\n      orbitalPeriode: 2651485330.8, // in seconds\n      material: {\n        bumpScale: 0.01,\n        type: 'MeshPhongMaterial',\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/uranusmap.jpg'),\n        bumpMap: textureLoader.load('img/uranusmap.jpg')\n      }\n    })\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Uranus.js?");
+
+/***/ }),
+
+/***/ "./src/stars/Venus.js":
+/*!****************************!*\
+  !*** ./src/stars/Venus.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(THREE) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"default\", function() { return Venus; });\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\");\n/* harmony import */ var three__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(three__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _Star__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Star */ \"./src/Star.js\");\n\n\n\nclass Venus extends _Star__WEBPACK_IMPORTED_MODULE_1__[\"default\"] {\n\n  constructor() {\n    let textureLoader = new THREE.TextureLoader();\n\n    super({\n      radius: 6051.8, // in kilometers\n      rotationPeriode: -20995200, // in seconds\n      orbitalRadius: 108200000, // in kilometers\n      orbitalPeriode: 18935794.44, // in seconds\n      material: {\n        bumpScale: 0.01,\n        type: 'MeshPhongMaterial',\n        specular: new THREE.Color('grey'),\n        map: textureLoader.load('img/venusmap.jpg'),\n        bumpMap: textureLoader.load('img/venusbump.jpg')\n      }\n    })\n  }\n\n}\n\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! three */ \"./node_modules/three/build/three.min.js\")))\n\n//# sourceURL=webpack:///./src/stars/Venus.js?");
 
 /***/ })
 
